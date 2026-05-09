@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contacto | Martin Dimitrov</title>
+
+  <meta name="description"
+    content="Página de contacto de Martin Dimitrov. Desarrollo Android, UI/UX y proyectos digitales." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1100px;
+      padding: 15px 30px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      z-index: 999;
+    }
+
+    .navbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #d1d5db;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .cv-btn {
+      background: #38bdf8;
+      color: #0f172a !important;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    /* CONTACT SECTION */
+
+    .contact-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 160px 0 100px;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact-info h1 {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 25px;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .contact-info span {
+      color: #38bdf8;
+    }
+
+    .contact-info p {
+      color: #cbd5e1;
+      line-height: 1.9;
+      margin-bottom: 35px;
+      font-size: 1.05rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .contact-links a {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.08);
+      font-size: 1.3rem;
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      transform: translateY(-5px);
+    }
+
+    /* FORM */
+
+    .contact-form {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 45px;
+      backdrop-filter: blur(12px);
+    }
+
+    .contact-form h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #d1d5db;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #38bdf8;
+      background: rgba(255,255,255,0.08);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 160px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      padding: 16px;
+      border-radius: 14px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    /* QUICK LINKS */
+
+    .quick-links {
+      margin-top: 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .quick-links a {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.3s;
+    }
+
+    .quick-links a:hover {
+      border-color: rgba(56,189,248,0.5);
+      transform: translateX(5px);
+    }
+
+    .quick-links i {
+      color: #38bdf8;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width: 900px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info h1 {
+        font-size: 3rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media(max-width: 600px) {
+      .contact-info h1 {
+        font-size: 2.4rem;
+      }
+
+      .contact-form {
+        padding: 30px 22px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+    <div class="navbar-content">
+
+      <div class="logo">
+        MartinMD
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#about">Sobre mí</a>
+        <a href="index.html#projects">Proyectos</a>
+        <a href="index.html#skills">Skills</a>
+
+        <a href="./Martin Miroslavov Dimitrov CV.pdf" target="_blank" class="cv-btn">
+          Descargar CV
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- CONTACT -->
+
+  <section class="contact-section">
+    <div class="container">
+
+      <div class="contact-wrapper">
+
+        <!-- LEFT -->
+
+        <div class="contact-info">
+
+          <h1>
+            HABLEMOS DE TU <span>PRÓXIMO PROYECTO</span>
+          </h1>
+
+          <p>
+            ¿Tienes una idea, proyecto o colaboración?
+            Actualmente trabajo en entorno empresarial y sigo desarrollando proyectos tecnológicos y productos digitales.
+          </p>
+
+          <div class="contact-links">
+
+            <a href="https://www.linkedin.com/in/martin-miroslavov-dimitrov/" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a href="https://github.com/martiin-md" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+
+            <a href="mailto:miroslavovdimitrovmartin@gmail.com">
+              <i class="fas fa-envelope"></i>
+            </a>
+
+            <a href="https://www.instagram.com/martiin.md/" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+          </div>
+
+          <div class="quick-links">
+
+            <a href="mailto:miroslavovdimitrovmartin@gmail.com">
+              <i class="fas fa-paper-plane"></i>
+              miroslavovdimitrovmartin@gmail.com
+            </a>
+
+            <a href="https://github.com/martiin-md" target="_blank">
+              <i class="fab fa-github"></i>
+              github.com/martiin-md
+            </a>
+
+            <a href="https://www.linkedin.com/in/martin-miroslavov-dimitrov/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+              LinkedIn Profesional
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="contact-form">
+
+          <h2>Enviar mensaje</h2>
+
+          <form action="https://formspree.io/f/xldgqnlb" method="POST">
+
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" name="name" placeholder="Tu nombre" required>
+            </div>
+
+            <div class="form-group">
+              <label>Correo electrónico</label>
+              <input type="email" name="email" placeholder="tuemail@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+              <label>Mensaje</label>
+              <textarea name="message" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Enviar mensaje
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer>© 2026 Martin Miroslavov Dimitrov — Todos los derechos reservados.</footer>
+</body>
+</html>
